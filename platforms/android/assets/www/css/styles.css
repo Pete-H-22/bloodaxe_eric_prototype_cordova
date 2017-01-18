@@ -1,0 +1,174 @@
+
+/* GENERAL */
+
+.hidden {
+	display: none !important;
+}
+
+img {
+	max-width:100px;
+}
+
+hr {
+	display: none;
+}
+
+.settings_option.active, #themes-list li.active {
+	border:solid black 3px !important;
+}
+
+em, i {
+	font-style:italic;
+}
+
+strong {
+	font-weight:bold;
+}
+
+#content-list li, #author-link, #book-link {
+   word-wrap: break-word !important;
+   white-space: normal !important;
+}
+
+.message {
+	text-align:center;
+	font-style:italic;
+}
+
+/*FRONT VIEW*/
+
+/*
+#front .ui-header {
+	background-image: url(../img/splash-bg-narrow.jpg);
+	background-position: center;
+	background-size:cover;
+}*/
+
+#front .ui-content {
+	background-color:#333333;
+}
+
+#front h1 {
+	font-family: Garamond, sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	word-wrap: break-word !important;
+	white-space: normal !important;
+	background-color: gray;
+	opacity: 0.8;
+}
+
+#front .ui-header .ui-input-text {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1em;
+}
+
+#random-front {
+	padding: 1.5em;
+	background-color:#f3f3f3;
+}
+
+#random-front a {
+	color:#333333;
+	text-shadow:none;
+}
+
+img.topnav_icon {
+	max-width: 70%;
+}
+
+/*BROWSE VIEW*/
+
+#content-list li a {
+	display: block;
+    height: 100%;
+}
+
+#read .ui-header .ui-btn-left, #read .ui-header .ui-btn-right {
+	max-width: 12% !important;
+}
+
+#categories-list, #themes-list {
+	margin-top: 1em;
+	border: lightgray 2px solid;
+	overflow-y: auto;
+	height: 16em;
+}
+
+#content-list p.message {
+	text-align:center;
+	padding-top: 1em;
+}
+
+/*READ VIEW*/
+
+#display-title {
+	width: 100%;
+	text-align: center;
+	margin: auto auto 2% auto;
+	max-width: 50%;
+}
+
+#display-title h2 {
+	font-size: 90%;
+	font-style:italic;
+	font-weight:normal;
+}
+
+div#text-frame {
+	padding:5px;
+	box-shadow: 5px 5px 5px #888888;
+	border-radius: 5px;
+}
+
+div#text-frame p {
+	text-indent: -1em;
+	padding-left: 1em;
+	text-shadow: none;
+}
+
+.display-tab {
+	overflow:auto;
+}
+
+.display-tab#video {
+	text-align:center;
+}
+
+#book-link, #author-link {
+	margin-top:2em;
+	text-shadow: none;
+}
+
+#book-link a {
+	color:inherit;
+	text-decoration:underline;
+}
+
+iframe {
+	max-width:100%;
+}
+
+#bio img {
+	margin:5px;
+}
+
+/*ABOUT PAGE*/
+
+#about p {
+	margin: 0.5em auto;
+	
+}
+
+
+/*DEBUG*/
+
+.debug {
+	color: red;
+}
+
+.debug>p {
+	font-size:0.5em;
+}

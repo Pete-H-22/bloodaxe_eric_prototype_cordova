@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Bloodaxe Books - ERIC version 0.7</title>
+	<meta name="description" content="">
+	<meta name="author" content="Peter Hebden">
+	<style>
+		
+		/*SLIDER*/
+		
+		.super_hide {
+			visibility: hidden !important;
+		}
+		
+		#slider {
+			position:fixed;
+			top:0;
+			height:100%;
+			width: 100%;
+			background-image: url(img/splash-bg.jpg);
+			background-size:cover;
+			background-repeat: no-repeat;
+    		background-position: center;
+    		overflow-y: hidden;
+			z-index:9999;
+			-webkit-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+    		transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+		}
+		
+		#slider p {
+			display:inline-block;
+			width:100%;
+			font-family: Garamond, sans-serif;
+			font-size:1.5em;
+			background-color: lightgray;
+			opacity: 0.6;
+			text-align: center;
+			position: absolute;
+			bottom: 20%;
+		}
+	</style>
+  	  
+  	  <link rel="stylesheet" href="css/reset.css">
+  	  <link rel="stylesheet" href="css/ERIC-theme1.min.css" />
+	  <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css" />
+	  <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+	  <link rel="stylesheet" href="css/styles.css">
+	  
+	  <!--
+	  <link rel="stylesheet" media="screen and (orientation: landscape)" href="css/landscape.css">
+	  <link rel="stylesheet" media="screen and (orientation: portrait)" href="css/portrait.css">
+	  -->
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link href='http://fonts.googleapis.com/css?family=Oswald:400,700|Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+  
+  <!--[if lt IE 9]>
+  	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	
+<div data-role="page" id="front">
+	
+	<div id="slider">
+		<p>Tap to begin</p>
+	</div>
+	
+	<div data-role="header" data-position="fixed" class="super_hide">
+		<h1>Bloodaxe Poetry App</h1>
+		
+		<a href="#" class="ui-btn ui-icon-search ui-btn-icon-notext open_search">Search</a>
+		
+		<div id="search_panel" class="front hidden" style='text-align: center'>
+			<input id="search_box" type="text" /> 
+			<a class="ui-btn ui-btn-corner-all" id="search_button" href='#browse'>Search</a>
+		</div>
+	</div>
+	
+	 <div data-role="main" class="ui-content super_hide">
+	 	
+		<div class="ui-btn button" id="random-front"><a href="#read"><p>Random Poem</p></a></div>	
+	 
+	 	<div data-role="navbar">
+		    <ul class="navbar front" id="top-nav">
+				<li class="ui-btn" id="poets-button"><a href="#browse"><p>Poets</p><img class='topnav_icon' src='img/icons/poets.png' /></a></li>
+				<li class="ui-btn" id="poems-button"><a href="#browse"><p>Poems</p><img class='topnav_icon' src='img/icons/poems.png' /></a></li>
+				<li class="ui-btn" id="videos-button"><a href="#browse"><p>Videos</p><img class='topnav_icon' src='img/icons/videos.png' /></a></li>
+				<li class="ui-btn" id="audios-button"><a href="#browse"><p>Audio</p><img class='topnav_icon' src='img/icons/audio.png' /></a></li>
+				<li class="ui-btn" id="categories-button"><a href="#browse"><p>Categories</p><img class='topnav_icon' src='img/icons/categories.png' /></a></li>
+				<li class="ui-btn" id="themes-button"><a href="#browse"><p>Themes</p><img class='topnav_icon' src='img/icons/themes.png' /></a></li>
+				<li class="ui-btn" id="favourites-button"><a href="#browse"><p>Favourites</p><img class='topnav_icon' src='img/icons/star_full.png' /></a></li>
+				<li class="ui-btn" id="about-button"><a href="#about"><p>About</p><img class='topnav_icon' src='img/icons/about.png' /></a></li>
+			</ul>
+		</div>
+	
+	 </div>
+	
+	<div data-role="footer" data-position="fixed"  class="super_hide">
+		<div id="connection_status"></div>
+		2016 &copy; Bloodaxe Books<br />
+		<em>ERIC v0.7</em>
+		
+		<div class="debug">
+			<p>DEBUG</p>
+			<span class="debug hidden" id="clear_fav">Clear favourites<br /></span>
+			<span class="debug hidden" id="clear_display">Clear display settings<br /></span>
+			<span class="debug hidden" id="clear_themes">Clear added themes<br /></span>
+			<span class="debug hidden" id="show_localstorage">Show localStorage data<br /></span>
+		</div>
+		
+	</div>
+
+</div>
+
+<div data-role="page" id="about">
+	
+	<div data-role="header" data-position="fixed">
+		<a href="#front" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+		<h1>About</h1>
+	</div>
+	
+	 <div data-role="main" class="ui-content">
+	 	<p>Welcome to the <strong>Bloodaxe Poetry App</strong> (alpha-test version)!</p>
+	 	<p>The app is currently under construction, but contains some sample content of a few Bloodaxe poets. Feel free to browse this content by returning to the home screen and selecting a browse option.</p>
+	 	<p>Content can be browsed by name of <strong>Poet</strong> and by title of <strong>Poem</strong>, or by poems featuring <strong>Audio</strong> or <strong>Video</strong> recordings. Poets are also sorted in <strong>Categories</strong> and poems featured in the app have been tagged with <strong>Themes</strong> to allow you to browse related content. Once you have added some poems to your <strong>Favourites</strong> list, you can use this option to navigate to them quickly. You can also search for content by clicking the <strong>Search</strong> icon on the Home screen.</p>
+	 	<p>After reading, listening to, or watching a poem, the app currently allows you to share recommendations for a poet via social media and email, add the poet to your favourites list, or tag the poem with themes. You can also change how the poem appears on the screen using the Display option.</p>
+	 	<p>This app is being developed for viewing on all devices, but with a priority on mobile touchscreens. At the moment, we recommend using Google Chrome or Safari browser on a tablet computer or larger smartphone for optimum viewing, but we're working on everything else!</p>
+	 	<p>In future versions, we hope to improve the look and feel of the app, as well as adding more Bloodaxe poets to the list, but we'd also like to add and improve other features based on the thoughts of poetry readers. Please help us to improve the app by completing <a href="http://forms.ncl.ac.uk/view.php?id=10641" target="_blank">this feedback form.</a></p>
+	 </div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div id="connection_status"></div>
+		2016 &copy; Bloodaxe Books<br />
+		<em>ERIC v0.7</em>
+		
+	</div>
+
+</div>
+
+<div data-role="page" id="browse">
+	
+	<div data-role="header" data-position="fixed">
+		<a href="#front" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+		<h1>Browse</h1>
+		<a id="random-browse" href="#read" class="ui-btn ui-icon-user ui-btn-icon-left">Random</a>
+		
+		<form>
+		<div class="ui-field-contain" style="text-align: center">
+		    <select name="topnav-dropdown" id="topnav-dropdown" data-mini="true" style="width:100%" data-native-menu="false">
+		        <option value="default" id="default"><p><em>Select a browse option</em></p></option>
+		        <option value="poets-button" id="poets-button"><p>Poets</p></option>
+		        <option value="poems-button" id="poems-button"><p>Poems</p></option>
+		        <option value="videos-button" id="videos-button"><p>Videos</p></option>
+		        <option value="audios-button" id="audios-button"><p>Audio</p></option>
+		        <option value="categories-button" id="categories-button"><p>Categories</p></option>
+		        <option value="themes-button" id="themes-button"><p>Themes</p></option>
+		        <option value="favourites-button" id="favourites-button"><p>Favourites</p></option>
+		        
+		        
+		    </select>
+		</div>
+		</form>
+		
+	</div>
+	
+	 <div data-role="main" class="ui-content">
+	    
+	    <div data-role="navbar">
+	    <ul class="navbar sub-navbar" id="poets-nav">
+			<li id="all-poets" class="ui-btn-active"><a href="#">All</a></li>
+			<li id="audio-poets"><a href="#">Audio</a></li>
+			<li id="video-poets"><a href="#">Video</a></li>
+		</ul>
+		</div>
+
+		<div data-role="navbar">
+		<ul class="navbar sub-navbar hidden" id="themes-nav">
+			<li id="all-themes" class="ui-btn-active"><a href="#">All</a></li>
+			<li id="bloodaxe-themes"><a href="#">Bloodaxe themes</a></li>
+			<li id="my-themes"><a href="#">My themes</a></li>
+		</ul>
+	    </div>
+	    
+	    <button class="hidden" id="clear_themes_button">Clear All</button>
+		<div class="content list hidden" id="themes-list"></div>
+		
+		<div class="content list hidden" id="categories-list"></div>
+		
+		<div class="content list" id="content-list"></div>
+	    
+	 </div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div id="connection_status"></div>
+		2016 &copy; Bloodaxe Books<br />
+		<em>ERIC v0.7</em>
+		
+	</div>
+
+</div>
+
+<div data-role="page" id="read">
+	
+	<div data-role="header" data-position="fixed">
+		<a href="#" class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+		<div id="display-title">
+			<!-- TITLE AND AUTHOR -->
+		</div>
+		<a id="random-browse" href="#read" class="ui-btn ui-icon-user ui-btn-icon-left">Random</a>
+		
+		<div id='poem-nav' data-role="navbar">
+		    <ul>
+		      <li><a id="text-audio-poem" href="#">Text and Audio</a></li>
+		      <li><a id="video-poem" href="#">Video</a></li>
+		      <li><a id="bio-poem" href="#">Bio</a></li>
+		    </ul>
+		</div>
+	
+	</div>
+	
+	 <div data-role="main" class="ui-content">
+	 	
+	 <div class="content page" id="poem-display">
+		<div class="display-tab hidden" id="text-audio">
+			<div id="audio-frame">
+				<!-- AUDIO OF POEM -->
+			</div>
+			<div id="text-frame">
+				<!-- TEXT OF POEM -->
+			</div>
+		</div>
+		<div class="display-tab hidden" id="video">
+			<!-- VIDEO OF POEM -->
+		</div>
+		<div class="display-tab hidden" id="bio">
+			<!-- POET BIO -->
+		</div>
+	 </div>
+	
+	<div id="display-meta" data-role="footer" data-position="fixed"  style="text-align:center;">
+		
+		<!--PANELS-->
+			<div class="hidden panel" id="settings_panel">
+				<p>Line wrapping:</p>
+					<div class="ui-btn ui-btn-inline settings_option line_option active" id="line-wrapping">Wrapping</div>
+					<div class="ui-btn ui-btn-inline settings_option line_option" id="line-nowrapping">No wrapping</div>
+				<p>Text size:</p>
+					<div class="ui-btn ui-btn-inline settings_option size_option" id="size-small">Small</div>
+					<div class="ui-btn ui-btn-inline settings_option size_option active" id="size-med">Medium</div>
+					<div class="ui-btn ui-btn-inline settings_option size_option" id="size-large">Large</div>
+				<p>Text colour:</p>
+					<div class="ui-btn ui-btn-inline settings_option text_colour_option" id="font-black">Black</div>
+					<div class="ui-btn ui-btn-inline settings_option text_colour_option" id="font-white">White</div>
+					<div class="ui-btn ui-btn-inline settings_option text_colour_option active" id="font-gray">Grey</div>
+				<p>Background colour:</p>
+					<div class="ui-btn ui-btn-inline settings_option bg_colour_option" id="bg-black">Black</div>
+					<div class="ui-btn ui-btn-inline settings_option bg_colour_option active" id="bg-white">White</div>
+					<div class="ui-btn ui-btn-inline settings_option bg_colour_option" id="bg-paper">Paper</div>
+			</div>
+			
+			<div class="hidden panel" id="share_panel">
+				<p>Share this poet:</p>
+				<a class="ui-btn button" id="share_email_button" href="mailto:?subject=Poetry recommendation from the Bloodaxe Poetry App&body=Check this out!">Email</a>
+				<a class="ui-btn button" id="share_tweet_button" href="https://twitter.com/intent/tweet">Tweet</a>
+				<a class="ui-btn button" id="share_facebook_button">Facebook</a>
+			</div>
+			
+			<div class="hidden panel" id="tag_panel">
+				<input id="tags_box" type="text" placeholder="Tag this poet with a theme"/>
+				<button id="tag_submit">Submit</button>
+			</div>
+		
+		<!--BUTTONS-->
+		<a id="settings_button" href="#" class="ui-btn ui-btn-icon-left">Display</a>
+		<a id="share_button" href="#" class="ui-btn ui-btn-icon-left">Share</a>
+		<a id="tag_button" href="#" class="ui-btn ui-btn-icon-left">Add Themes</a>
+		<a id="favourite" href="#" class="ui-btn ui-btn-icon-left">Add to Favourites</a>
+
+	</div>
+
+</div>
+
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+<!-- HACKY CORDOVA SCRIPT
+<script type="text/javascript" src="js/cordova.js"></script>
+-->
+<script type="text/javascript" src="js/velocity.min.js"></script>
+
+<!--<script src="//connect.soundcloud.com/sdk.js"></script>-->
+<script src="http://connect.soundcloud.com/sdk.js">
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script type="text/javascript" src="js/fb/snippet.js"></script>
+<script type="text/javascript" src="poets_array.jsonp"></script>
+<script type="text/javascript" src="categories_array.jsonp"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+
+<script>
+var iframe = $('iframe')[0],
+        player = $f(iframe),
+        status = $('.status');
+
+        player.addEvent('ready', function() {
+            player.api('pause');
+        });
+</script>
+
+</body>
+</html>
